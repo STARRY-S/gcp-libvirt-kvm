@@ -8,8 +8,8 @@
       <libosinfo:os id="http://ubuntu.com/ubuntu/20.04"/>
     </libosinfo:libosinfo>
   </metadata>
-  <memory unit="MiB">2048</memory>
-  <currentMemory unit="MiB">2048</currentMemory>
+  <memory unit="MiB">6144</memory>
+  <currentMemory unit="MiB">6144</currentMemory>
   <vcpu placement="static">2</vcpu>
   <os>
     <type arch='x86_64' machine='q35'>hvm</type>

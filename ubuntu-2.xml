@@ -8,9 +8,9 @@
       <libosinfo:os id="http://ubuntu.com/ubuntu/20.04"/>
     </libosinfo:libosinfo>
   </metadata>
-  <memory unit="MiB">4096</memory>
-  <currentMemory unit="MiB">4096</currentMemory>
-  <vcpu placement="static">2</vcpu>
+  <memory unit="MiB">6144</memory>
+  <currentMemory unit="MiB">6144</currentMemory>
+  <vcpu placement="static">4</vcpu>
   <os>
     <type arch='x86_64' machine='q35'>hvm</type>
     <!-- UEFI 启动需要 ovmf loader 和 nvram，legancy 启动可注释下方 loader 和 nvram  -->
