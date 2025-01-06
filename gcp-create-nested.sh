@@ -17,6 +17,8 @@ gcloud compute instances create ${INSTANCE_NAME} \
   --source-instance-template="projects/ei-container-platform-dev/regions/asia-northeast1/instanceTemplates/$INSTANCE_TEMPLATE" \
   --machine-type="n1-standard-16" \
   --boot-disk-size="200G" \
+  --custom-cpu=8 \
+  --custom-memory=16G \
   --provisioning-model=SPOT \
 
 # starry-kvm-debian-8c16g: 8C 16G Debian 12, can run 3 nested KVM

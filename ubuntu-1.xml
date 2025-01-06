@@ -14,8 +14,8 @@
   <os>
     <type arch='x86_64' machine='q35'>hvm</type>
     <!-- UEFI 启动需要 ovmf loader 和 nvram，legancy 启动可注释下方 loader 和 nvram  -->
-    <loader readonly='yes' type='pflash'>/usr/share/OVMF/OVMF_CODE.fd</loader>
-    <nvram type='file' template='/usr/share/OVMF/OVMF_VARS.fd'>
+    <loader readonly='yes' type='pflash'>/usr/share/OVMF/OVMF_CODE_4M.fd</loader>
+    <nvram type='file' template='/usr/share/OVMF/OVMF_VARS_4M.fd'>
       <source file='/var/lib/libvirt/nvram/ubuntu1_VARS.fd'/>
     </nvram>
     <!-- <boot dev='cdrom'/>  --> <!-- 启动顺序，安装系统时需要 cdrom -->
