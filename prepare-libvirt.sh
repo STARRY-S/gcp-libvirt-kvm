@@ -77,6 +77,9 @@ sudo virsh define ./ubuntu-1.xml
 sudo virsh define ./ubuntu-2.xml
 sudo virsh define ./ubuntu-3.xml
 
+# Ensure IPv6 VM connections
+sudo ip6tables -P FORWARD ACCEPT
+
 set +x
 sudo virsh list --all
 

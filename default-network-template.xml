@@ -1,18 +1,22 @@
 <network>
   <name>default</name>
   <uuid>DEFAULT_NETWORK_UUID</uuid>
-  <forward mode='nat'/>
+  <forward mode='nat'>
+    <nat ipv6="yes">
+      <port start="1" end="65535"/>
+    </nat>
+  </forward>
   <bridge name='virbr0' stp='on' delay='0'/>
   <mac address='aa:bb:cc:dd:fd:aa'/>
   <ip address='10.128.0.1' netmask='255.240.0.0'>
-  <!-- Address: FF.80.00.01 -->
-  <!-- VM CIDR: 10.0.0.0/8 -->
-  <!-- RKE Cluster CIDR: 10.192.0.0/12, block size for each node: 20: 10.192.0.0/20 -->
-  <!-- Calico ippool CIDR 10.192.0.0/20 (same with the RKE node CIDR), ippool block size: 24 -->
-  <!-- each ippool block can have 2^8-2=254 pod ips, each ippool has 2^4=16 blocks -->
-  <!-- (each ippool can have about 16*254, about 4000 pod ips) -->
-  <!-- each cluster can have 2^8-2=254 nodes -->
-  <!-- each node only have 1 ippool in this example since the ippool cidr is same with node cidr -->
+    <!-- Address: FF.80.00.01 -->
+    <!-- VM CIDR: 10.0.0.0/8 -->
+    <!-- RKE Cluster CIDR: 10.192.0.0/12, block size for each node: 20: 10.192.0.0/20 -->
+    <!-- Calico ippool CIDR 10.192.0.0/20 (same with the RKE node CIDR), ippool block size: 24 -->
+    <!-- each ippool block can have 2^8-2=254 pod ips, each ippool has 2^4=16 blocks -->
+    <!-- (each ippool can have about 16*254, about 4000 pod ips) -->
+    <!-- each cluster can have 2^8-2=254 nodes -->
+    <!-- each node only have 1 ippool in this example since the ippool cidr is same with node cidr -->
     <dhcp>
       <range start='10.128.255.200' end='10.128.255.254'/>
       <host mac="aa:bb:cc:dd:fd:01" name="ubuntu-1" ip="10.128.0.101"/>
@@ -20,6 +24,11 @@
       <host mac="aa:bb:cc:dd:fd:03" name="ubuntu-3" ip="10.128.0.103"/>
       <host mac="aa:bb:cc:dd:fd:04" name="ubuntu-4" ip="10.128.0.104"/>
       <host mac="aa:bb:cc:dd:fd:05" name="ubuntu-5" ip="10.128.0.105"/>
+    </dhcp>
+  </ip>
+  <ip family="ipv6" address="fd00:cafe::1" prefix="64">
+    <dhcp>
+      <range start='fd00:cafe::1000' end='fd00:cafe::10ff'/>
     </dhcp>
   </ip>
 </network>

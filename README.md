@@ -49,7 +49,7 @@ sudo virsh start ubuntu-1       # 启动虚拟机
 sudo virsh shutdown ubuntu-1    # 虚拟机关机
 ```
 
-可通过 IP 地址 SSH 到虚拟机中，三个虚拟机对应的 IP 地址为：
+可通过 IP 地址 SSH 到虚拟机中，三个虚拟机对应的 IPv4 地址为：
 
 ```console
 $ ssh ubuntu@10.128.0.101
@@ -57,7 +57,21 @@ $ ssh ubuntu@10.128.0.102
 $ ssh ubuntu@10.128.0.103
 ```
 
+> [!NOTE]
+>
 > 默认的用户密码为 `testpassword`。
+
+虚拟机已配置了 IPv6 的 NAT 网络链接，三个虚拟机对应的 IPv6 地址为：
+
+```console
+$ ssh ubuntu@fd00:cafe::101
+$ ssh ubuntu@fd00:cafe::102
+$ ssh ubuntu@fd00:cafe::103
+```
+
+> [!NOTE]
+>
+> 如果 KVM 嵌套虚拟机之间无法通过 IPv6 互相访问，请在 GCP 主机中执行 `sudo ip6tables -P FORWARD ACCEPT`。
 
 # LICENSE
 

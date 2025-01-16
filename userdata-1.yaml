@@ -15,9 +15,24 @@ runcmd:
   Name=en*
 
   [Network]
+  DHCP=no
+  DNS=8.8.8.8
+  IPv6AcceptRA=no
+
+  [Address]
   Address=10.128.0.101/8
+
+  [Address]
+  Address=fd00:cafe::101/64
+
+  [Route]
   Gateway=10.128.0.1
-  DNS=8.8.8.8" > /etc/systemd/network/10-default.network
+  GatewayOnLink=yes
+
+  [Route]
+  Gateway=fd00:cafe::1
+  GatewayOnLink=yes
+  " > /etc/systemd/network/10-default.network
 
  - |
   # Install docker
