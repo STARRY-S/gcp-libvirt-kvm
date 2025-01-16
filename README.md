@@ -79,9 +79,13 @@ $ ssh ubuntu@fd00:cafe::103
 
     ![](images/01.png)
 
-1. 修改 Networking 配置，设置 ClusterCIDR & ServiceCIDR 的 IPv6 地址。
+1. 编辑 Cilium 的 Helm Config，修改 `cni.exclusive=false` 允许安装第三方 CNI 插件。
 
     ![](images/02.png)
+
+1. 修改 Networking 配置，设置 ClusterCIDR & ServiceCIDR 的 IPv6 地址。
+
+    ![](images/03.png)
 
     - ClusterCIDR: `10.42.0.0/16,fd01:cafe:0042::/52`
     - ServiceCIDR: `10.42.0.0/16,fd01:cafe:0043::/112`
@@ -89,7 +93,7 @@ $ ssh ubuntu@fd00:cafe::103
 
 1. 集群 Pod 会被自动添加 IPv6 IP。
 
-    ![](images/03.png)
+    ![](images/04.png)
 
 # LICENSE
 
