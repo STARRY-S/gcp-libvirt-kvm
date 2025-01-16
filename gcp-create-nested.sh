@@ -15,8 +15,8 @@ gcloud compute instances create ${INSTANCE_NAME} \
   --zone="asia-northeast1-b"  \
   --min-cpu-platform="Intel Haswell" \
   --source-instance-template="projects/ei-container-platform-dev/regions/asia-northeast1/instanceTemplates/$INSTANCE_TEMPLATE" \
-  --custom-cpu=10 \
-  --custom-memory=20G \
+  --custom-cpu=12 \
+  --custom-memory=22G \
   --boot-disk-size="200G" \
   --provisioning-model=SPOT
 

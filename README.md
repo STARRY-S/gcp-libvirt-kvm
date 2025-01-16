@@ -73,6 +73,24 @@ $ ssh ubuntu@fd00:cafe::103
 >
 > 如果 KVM 嵌套虚拟机之间无法通过 IPv6 互相访问，请在 GCP 主机中执行 `sudo ip6tables -P FORWARD ACCEPT`。
 
+### 创建 RKE2 Cilium IPv6 集群
+
+1. 创建 Custom 集群时，选择 RKE2 Cilium，勾选 *Enable IPv6 Support*。
+
+    ![](images/01.png)
+
+1. 修改 Networking 配置，设置 ClusterCIDR & ServiceCIDR 的 IPv6 地址。
+
+    ![](images/02.png)
+
+    - ClusterCIDR: `10.42.0.0/16,fd01:cafe:0042::/52`
+    - ServiceCIDR: `10.42.0.0/16,fd01:cafe:0043::/112`
+    - ClusterDNS: `10.43.0.10`
+
+1. 集群 Pod 会被自动添加 IPv6 IP。
+
+    ![](images/03.png)
+
 # LICENSE
 
 MIT License
