@@ -20,6 +20,8 @@ gcloud compute instances create ${INSTANCE_NAME} \
   --boot-disk-size="200G" \
   --provisioning-model=SPOT
 
+  # --machine-type="n1-standard-16" \
+
 # starry-kvm-debian-8c16g: 8C 16G Debian 12, can run 3 nested KVM
 # starry-kvm-ubuntu-8c16g: 8C 16G Ubuntu 20.04 LTS, can run 3 nested KVM
 
