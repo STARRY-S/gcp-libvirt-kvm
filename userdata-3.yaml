@@ -5,49 +5,72 @@ ssh_pwauth: True
 hostname: ubuntu-3
 ssh_authorized_keys:
 bootcmd:
- - dhclient
+  - dhclient
 runcmd:
- - echo 10.128.0.101 ubuntu-1 >> /etc/hosts
- - echo 10.128.0.102 ubuntu-2 >> /etc/hosts
- - echo 10.128.0.103 ubuntu-3 >> /etc/hosts
- - |
-  echo "[Match]
-  Name=enp1s0
+  - echo 10.128.0.101 ubuntu-1 >> /etc/hosts
+  - echo 10.128.0.102 ubuntu-2 >> /etc/hosts
+  - echo 10.128.0.103 ubuntu-3 >> /etc/hosts
+  - |
+    echo "[Match]
+    Name=enp1s0
 
-  [Network]
-  DHCP=no
-  DNS=8.8.8.8
-  IPv6AcceptRA=no
+    [Network]
+    DHCP=no
+    DNS=8.8.8.8
+    IPv6AcceptRA=no
 
-  [Address]
-  Address=10.128.0.103/8
+    [Address]
+    Address=10.128.0.103/12
 
-  [Address]
-  Address=fd00:cafe::103/64
+    [Address]
+    Address=fd00:cafe::103/64
 
-  [Route]
-  Gateway=10.128.0.1
-  GatewayOnLink=yes
+    [Route]
+    Gateway=10.128.0.1
+    GatewayOnLink=yes
 
-  [Route]
-  Gateway=fd00:cafe::1
-  GatewayOnLink=yes
-  " > /etc/systemd/network/10-default.network
+    [Route]
+    Gateway=fd00:cafe::1
+    GatewayOnLink=yes
+    " > /etc/systemd/network/10-default.network
+  - |
+    echo "[Match]
+    Name=enp2s0
 
- - |
-  # Install docker
-  sudo apt-get -y update
-  sudo apt-get -y install ca-certificates curl
-  sudo install -m 0755 -d /etc/apt/keyrings
-  sudo mkdir -p /etc/apt/keyrings/
-  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-  sudo chmod a+r /etc/apt/keyrings/docker.asc
+    [Network]
+    DHCP=no
+    DNS=8.8.8.8
+    IPv6AcceptRA=no
 
-  # Add the repository to Apt sources:
-  echo \
-    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  sudo apt-get -y update
-  VERSION_STRING='5:24.0.9-1~ubuntu.20.04~focal'
-  sudo apt-get -y install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
+    [Address]
+    Address=10.128.0.203/12
+
+    [Address]
+    Address=fd00:cafe::203/64
+
+    [Route]
+    Gateway=10.128.0.1
+    GatewayOnLink=yes
+
+    [Route]
+    Gateway=fd00:cafe::1
+    GatewayOnLink=yes
+    " > /etc/systemd/network/10-default.network
+
+  - |
+    # Install docker
+    sudo apt-get -y update
+    sudo apt-get -y install ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo mkdir -p /etc/apt/keyrings/
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+    # Add the repository to Apt sources:
+    echo \
+      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+      $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+      sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt-get -y update
+    VERSION_STRING='5:24.0.9-1~ubuntu.20.04~focal'
+    sudo apt-get -y install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin

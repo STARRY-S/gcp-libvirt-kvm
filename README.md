@@ -47,6 +47,8 @@ $ sudo virsh list --all
 ```sh
 sudo virsh start ubuntu-1       # 启动虚拟机
 sudo virsh shutdown ubuntu-1    # 虚拟机关机
+sudo virsh destroy ubuntu-1     # 强制关机
+sudo virsh console ubuntu-1     # 连接虚拟机串口（在 SSH 链接失败时可尝试使用串口）
 ```
 
 可通过 IP 地址 SSH 到虚拟机中，三个虚拟机对应的 IPv4 地址为：
@@ -55,6 +57,14 @@ sudo virsh shutdown ubuntu-1    # 虚拟机关机
 $ ssh ubuntu@10.128.0.101
 $ ssh ubuntu@10.128.0.102
 $ ssh ubuntu@10.128.0.103
+```
+
+除此之外，每个虚拟机均含有第二块虚拟网卡，对应的 IPv4 地址为：
+
+```console
+$ ssh ubuntu@10.128.0.201
+$ ssh ubuntu@10.128.0.202
+$ ssh ubuntu@10.128.0.203
 ```
 
 > [!NOTE]
@@ -99,7 +109,7 @@ $ ssh ubuntu@fd00:cafe::103
 
 MIT License
 
-Copyright (c) 2024 STARRY-S
+Copyright (c) 2025 STARRY-S
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

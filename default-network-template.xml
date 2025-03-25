@@ -24,6 +24,11 @@
       <host mac="aa:bb:cc:dd:fd:03" name="ubuntu-3" ip="10.128.0.103"/>
       <host mac="aa:bb:cc:dd:fd:04" name="ubuntu-4" ip="10.128.0.104"/>
       <host mac="aa:bb:cc:dd:fd:05" name="ubuntu-5" ip="10.128.0.105"/>
+      <host mac="aa:bb:cc:dd:fd:11" name="ubuntu-1" ip="10.128.0.201"/>
+      <host mac="aa:bb:cc:dd:fd:12" name="ubuntu-2" ip="10.128.0.202"/>
+      <host mac="aa:bb:cc:dd:fd:13" name="ubuntu-3" ip="10.128.0.203"/>
+      <host mac="aa:bb:cc:dd:fd:14" name="ubuntu-4" ip="10.128.0.204"/>
+      <host mac="aa:bb:cc:dd:fd:15" name="ubuntu-5" ip="10.128.0.205"/>
     </dhcp>
   </ip>
   <ip family="ipv6" address="fd00:cafe::1" prefix="64">
