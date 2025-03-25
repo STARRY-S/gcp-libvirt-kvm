@@ -12,7 +12,7 @@ runcmd:
  - echo 10.128.0.103 ubuntu-3 >> /etc/hosts
  - |
   echo "[Match]
-  Name=en*
+  Name=enp1s0
 
   [Network]
   DHCP=no
