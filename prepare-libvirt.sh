@@ -10,7 +10,7 @@ if ! cat ~/.bashrc | grep -q '/usr/sbin'; then
     echo 'export PATH=$PATH:/usr/sbin' >> ~/.bashrc
 fi
 
-CLOUD_IMG="https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img"
+CLOUD_IMG="https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img"
 LIBVIRT_PATH="/var/lib/libvirt"
 
 sudo apt-get update
