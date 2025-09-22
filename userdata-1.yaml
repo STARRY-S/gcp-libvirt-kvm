@@ -32,7 +32,7 @@ runcmd:
     [Route]
     Gateway=fd00:cafe::1
     GatewayOnLink=yes
-    " > /etc/systemd/network/10-default.network
+    " > /etc/systemd/network/10-default1.network
   - |
     echo "[Match]
     Name=enp2s0
@@ -55,7 +55,8 @@ runcmd:
     [Route]
     Gateway=fd00:cafe::1
     GatewayOnLink=yes
-    " > /etc/systemd/network/10-default.network
+    " > /etc/systemd/network/10-default2.network
+  - sudo systemctl restart systemd-networkd
 
   - |
     # Install docker
