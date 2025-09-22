@@ -98,7 +98,7 @@ $ ssh ubuntu@fd00:cafe::103
     ![](images/03.png)
 
     - ClusterCIDR: `10.42.0.0/16,fd01:cafe:0042::/52`
-    - ServiceCIDR: `10.42.0.0/16,fd01:cafe:0043::/112`
+    - ServiceCIDR: `10.43.0.0/16,fd01:cafe:0043::/112`
     - ClusterDNS: `10.43.0.10`
 
 1. 集群 Pod 会被自动添加 IPv6 IP。
